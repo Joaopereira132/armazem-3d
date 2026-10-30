@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armazém 3D (Three.js)</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #555; }
+    #WebGL-canvas { width: 100%; height: 100%; display: block; }
+  </style>
+  <!-- Three.js carregado por CDN, com versão fixa (sem passo de build) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three":         "https://unpkg.com/three@0.161.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="WebGL-canvas" aria-label="Cena 3D de um armazém com estantes e um robô"></canvas>
+
+  <script type="module">
+    import { Webgl } from './src/Webgl.js';
+    import { MyGui } from './src/MyGui.js';
+
+    // O Webgl corre o seu próprio ciclo de animação; o painel só regista ações.
+    const webgl = new Webgl();
+    new MyGui(webgl);
+  </script>
+</body>
+</html>
